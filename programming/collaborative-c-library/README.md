@@ -14,24 +14,118 @@ We are looking for contributors to implement the function definitions for the de
 - **`README.md`**: Documentation for the project.
 
 **How to Implement the Functions**:
-Navigate to the .c file corresponding to the header file. For example, if implementing a mathematical function, edit math_utils.c.
+Navigate to the .c file corresponding to the header file. For example, if implementing a geomatrical function, edit geomatry_utils.c.
 
+Example: For the declaration in geomatry_utils.h:
+
+
+ ```bash
+   double area_circle(double radius);
+
+   ```
+
+Add the following definition in geomatry_utils.c:
+```bash
+double area_circle(double radius) {
+    double area = 3.14 * radius * radius;
+    return area;
+}
+```
+Example: For the declaration in geomatry_utils.h:
+
+
+ ```bash
+   double area_rectangle(double length, double width);
+
+   ```
+
+Add the following definition in geomatry_utils.c:
+```bash
+double area_rectangle(double length, double width) {
+    double area = length * width;
+    return area;
+}
+```
 Example: For the declaration in math_utils.h:
 
 
  ```bash
-   int factorial (int n);
+   int factorial(int n);
+
+   ```
+Add the following definition in math_utils.c:
+
+```bash
+int factorial(int n) {
+    if(n<0) return -1;
+    int ans = 1;
+    while(n>0) {
+        ans *= n;
+        n--;
+    } 
+    return ans;
+}
+```
+Example: For the declaration in math_utils.h:
+
+
+ ```bash
+   int gcd(int a, int b);
 
    ```
 
 Add the following definition in math_utils.c:
 ```bash
-int factorial(int n) {
-    if (n < 0) return -1;
-        int result = 1;
-        for (int i = 1; i <= n; ++i) {
-        result \*= i;
+int gcd(int a, int b) {
+    if(b==0) return a;
+    int remainder = a%b;
+    return gcd(b, remainder);
+}
+```
+Example: For the declaration in string_utils.h:
+
+
+ ```bash
+   char* reverse_string(const char* str);
+
+   ```
+
+Add the following definition in string_utils.c:
+```bash
+char* reverse_string(const char* str) {
+    if (str == NULL) {
+        return NULL; 
     }
+    int length = strlen(str);
+    char* reversed = (char*)malloc(length + 1);
+    for (int i = 0; i < length; ++i) {
+        reversed[i] = str[length-1-i];
+    }
+    
+    reversed[length] = '\0';
+
+    return reversed;
+}
+```
+Example: For the declaration in string_utils.h:
+
+
+ ```bash
+   char* to_uppercase(const char* str);
+
+   ```
+
+Add the following definition in string_utils.c:
+```bash
+char* to_uppercase(const char* str) {
+    if(str==nullptr) return nullptr;
+    int length = strlen(str);
+    char* result = (char*)malloc(length + 1);
+    for (int i = 0; i < length; ++i) {
+        char c = str[i] - 32;
+        result[i] = c;
+    }
+    result[length] = '\0';
     return result;
 }
 ```
