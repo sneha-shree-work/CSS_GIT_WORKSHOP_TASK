@@ -17,14 +17,21 @@ We are looking for contributors to implement the function definitions for the de
 Navigate to the .c file corresponding to the header file. For example, if implementing a mathematical function, edit math_utils.c.
 
 Example: For the declaration in math_utils.h:
-int factorial(int n);
+
+
+ ```bash
+   int factorial (int n);
+
+   ```
 
 Add the following definition in math_utils.c:
+```bash
 int factorial(int n) {
-if (n < 0) return -1;
-int result = 1;
-for (int i = 1; i <= n; ++i) {
-result \*= i;
+    if (n < 0) return -1;
+        int result = 1;
+        for (int i = 1; i <= n; ++i) {
+        result \*= i;
+    }
+    return result;
 }
-return result;
-}
+```
